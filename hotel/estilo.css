@@ -1,0 +1,308 @@
+body, html{
+    font: 16px Arial, Helvetica, sans;  /*Fonte padrão de todo site*/
+    margin:0;				/*reseta margens de todo site*/
+    padding:0;				/*reseta o padding de todo site*/
+    background: #D2D2D2;		/*background geral do site*/
+    min-width: 800px;			/*Largura minima da pagina quando aberta em uma resolução maior que 360px*/
+}
+.main{		
+    max-width:1000px;			/*Largura máxima do corpo do site*/
+    margin:0 auto;			/*Margem da largura zerada e altura automatica*/
+    overflow:hidden;			/*Caso o layout ultrapasse os limites de largura será escondido o conteudo*/
+}
+
+/*Configurações do logo*/
+.logo{
+    z-index: 10;			/*Indice para a logo sobrepor outros elementos HTML no site*/
+    position: relative;			
+    left: 50%;
+    float: left;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+    margin: 0 0 0 -46%;
+    background-color: rgba(0, 79, 90, 0.9);/* Cor de fundo do logo com opacidade de 90%*/
+
+}
+.logo img{
+    height: 100px;                	/*Altura da imagem de logo*/
+}
+
+/*
+Declaracao da animacao que e feita no slide do topo do site
+Prefixo -webkit- e usado para a animacao funcionar no chrome 
+*/
+@-webkit-keyframes slidy {
+    0% { left: 0%; }		/*No inicio da animacao mostrar a primeira imagem*/
+    20% { left: 0%; }		
+    25% { left: -100%; }	/*Apos 25% do tempo de animação direcionar a visao do elemento 100% a esquerda*/
+    45% { left: -100%; }	/*Dessa forma a primeira imagem é substituida pela segunda*/
+    50% { left: -200%; }	/*O mesmo ocorre com as demais imagens que são deslocadas para a esquerda*/
+    70% { left: -200%; }	/*Dando espaço para as imagens que seguem a direita*/
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }	/*Ao final da animação será reiniciada a mesma*/
+}
+
+/*
+Declaracao da animacao que e feita no slide do topo do site
+Para navegadores como firefox e IE que ja nao utilizam mais um prefixo
+*/
+@keyframes slidy {
+    0% { left: 0%; }		/*Tem a mesma função que a declaração acima porem esta é a definição padrão*/
+    20% { left: 0%; }		/*A anterior utilizando -webkit- é para fazer funcionar no Chrome*/
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+
+/*Gerenciamento do slide no cabecalho feito apenas com css*/
+section#slide { 
+    overflow: hidden; 
+    height: 28em;
+}
+section#slide figure img { 
+    width: 20%; 
+    float: left; 
+}
+section#slide figure { 
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slidy infinite; 	  /* Seta a animação do banner "slidy" declarada acima para durar 30 segundos infinitamente*/
+    -webkit-animation:30s slidy infinite; /* prefixo -webkit- e usado para a animacao funcionar no chrome */
+}
+
+/*Estilo do menu*/
+.menu{
+    font-size: 30px;
+    width: 100%;
+    background: #004f5a;
+}
+.menu ul{
+    margin:0; 
+    padding:0;
+}
+.menu ul li{
+    display:inline-block;  /*Disposição dos menus como blocos em uma linha*/
+    margin:0; 		   /*resetado os atributos de margin e padding padrao*/
+    padding:0;
+}
+.menu ul li a{
+    display:block;         /* Disponibilizar os itens de menu em forma de blocos */
+    padding:0.5em;         /* espacamento interno de cada item do menu */
+    color:#f1f1e5;         /* define a cor dos intes de menu */
+    text-decoration: none; /* removido as decoracoes de links */
+}
+.menu ul li a:hover{
+    color: #fff;           /* define a cor dos itens de menu quando passar o mouse por cima */
+}
+
+
+
+input {
+    border: 1px solid #ccc;/*Borda dos campos */
+    font-size: 18px;	   /*Tamanho da fonte dentro dos campos*/
+    width: 300px;	   /*Largura dos campos*/
+    min-height: 27px;	   /*Altura minima dos campos*/
+    display: block;	   /*Disponibilizar os campos em bloco*/
+    margin-bottom: 10px;   /*margem de espaço abaixo de cada campo*/
+    margin-top: 3px;	   /*margem de espaço acima de cada campo*/
+    outline: none;	   /*Remove a borda padrao dos navegadores que circula os campos quando selecionados*/
+
+    /*Arredondamento das bordas dos inputs */
+    -webkit-border-radius:5px;/*Chrome*/
+    -moz-border-radius:5px;   /*firefox*/
+    -o-border-radius:5px;     /*opera*/
+    -ms-border-radius:5px;    /*IE*/
+    border-radius:5px;	      /*padrão*/
+}
+
+.botoes{
+    display: block;		
+    padding: 0.5em;              /* espacamento interno de cada item do menu */
+    color: #f1f1e5;              /* define a cor dos intes de menu           */
+    text-decoration: none;       /* removido as decoracoes de links          */
+    background-color: #004f5a;   /* define a cor de fundo dos botoes         */
+    font-size: 18px;            
+    width: 150px;		
+    text-align: center;		
+    margin-top: 20px;		
+}
+
+.botoes:hover{
+    color: #fff;                 /* define a cor dos botoes quando passar o mouse por cima */
+}
+
+/*Conteudo do site*/
+.conteudo{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: justify;
+
+    float: left;
+    width: 100%;
+    padding-left: 60px;
+    padding-bottom: 20px;
+    margin-bottom: 6px;
+    background: #fff;
+    
+}
+
+/*Definições para formularios do site*/
+.conteudo form{
+    margin-top: 15px;
+    
+}
+
+.conteudo-interno{
+    margin-right: 210px;
+    display: block;
+}
+
+/*Definições para o titulo de cada artigo do site*/
+.conteudo-interno h2{
+    border-bottom: 1px solid #D2D2D2;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.5em;
+}
+
+/*Definição da mensagem de sucesso*/
+.msgSucesso{
+    border: 1px solid #43E05C;
+    padding: 0.3em;
+	background-color: #24C53E;
+}
+
+/*Definição de altura das imagens dentro do conteudo do site*/
+.conteudo-interno img{
+    height: 10em;
+    margin: 5px;
+}
+
+/*Definições da tabela de dados*/
+.conteudo-interno table{
+    font-size: 15px;
+
+    width: 840px;
+    margin-top: 20px;
+    border-spacing: 0;		/*Espaçamento entre celulas da tabela zerado*/
+    border-collapse: collapse;	/*Junção das celulas da tabela para não ter espaços entre elas*/
+}
+
+/*Definições dos cabeçalhos e colunas das tabelas*/
+.conteudo-interno th, .conteudo-interno td{
+    padding-right: 5px;		/*Espaçamento entre cada celula da tabela de 5px a direita*/
+}
+
+/*Definição do cabeçalho das tabelas de dados*/
+.conteudo-interno th{
+    border-bottom-style: solid;	/*Estilo sólido uma traço padrão abaixo do cabeçalho*/
+    border-bottom-color: black; /*Cor do traço do cabeçalho*/
+    border-bottom-width: 1px;	/*Espessura do traço*/
+    line-height: 25px;		/*Altura do cabeçalho*/
+}
+/*Definições das colunas da tabela*/
+.conteudo-interno td{
+    text-align: left;		/*Alinhar o texto a esquerda*/
+    overflow: hidden;
+}
+/*Definição dos icones da tabela de dados editar excluir*/
+.conteudo-interno table .icon{
+    height: 1em;		/*Altura do icone será correspondente a algura da fonte utilizada*/
+}
+
+
+
+br{
+    clear: both;            /* Quebra de linha para posicionar o rodape abaixo do conteudo */
+}
+/*Definições do rodapé*/
+.rodape{
+    margin-top: 0.3em;	    /*Margem superior de 30% o tamanho da fonte*/
+    padding: 0.4em; 	    /*Margem inferior de 40% o tamanho da fonte*/
+    font-size: 1.2em;	    /*Tamanho da fonte do rodapé*/
+    width: 100%;
+    text-align: center;	
+    position: relative;
+    color: #8C8C83;
+}
+
+/* Caso a resolucao do documento seja menor que 365px (conforme Enunciado da G2) o layout se ajusta para esta resolucao */
+@media screen and (max-width: 365px) {
+
+    body, html{
+        min-width: 360px;	/*Largura minima do documento 360px*/
+    }
+    .logo{
+        width: 100px;		/*Largura da logo*/
+        padding: 8px;		/*Espaçamento em volta da logo de 8px*/
+
+    }
+    .main{
+    	max-width: 360px;	/*Largura maxima do corpo do site de 360px*/
+	float: left;		/*Alinhar todos os elementos do corpo a esquerda*/
+    }
+    .logo img{			
+        height: 50px;           /*Altura da imagem em 50px*/
+    }
+
+    section#slide { 
+        height: 12em;		/*Altura do banner de slide 12x o tamanho da fonte*/
+    }
+
+    input {
+    	font-size: 20px;	/*Tamanho da fonte dos campos diminuida*/
+    	width: 300px;		
+    	min-height: 30px;
+    	margin-bottom: 15px;
+    	margin-top: 5px;
+    }
+
+    .menu{
+        font-size: 16px;
+    }
+    .conteudo{
+    	font-size: 12px;
+    	line-height: 18px;
+    	padding-left: 15px;
+    	padding-bottom: 5px;
+    	margin-bottom: 2px;
+    }
+
+    .conteudo label{
+	font-size: 17px;
+    }
+    .conteudo-interno{
+        min-width: 300px;
+    }
+    .conteudo-interno img{
+    	height: 5em;
+    	margin: 1px;
+    }
+	.conteudo-interno table{
+		font-size: 11px;
+		width: 350px;
+	}
+	.conteudo-interno th, .conteudo-interno td{
+		padding-right: 1px;
+	}
+	.invisivelResposivo{
+		display: none;	
+	}
+    .rodape{
+	font-size: 10px;
+        margin-top: 0.2em;
+        padding: 0.3em; 
+    }
+        
+}

@@ -1,0 +1,13 @@
+
+
+CREATE DATABASE `hotel`;
+
+CREATE TABLE `hotel`.`reservas` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `quartos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codigo`)
+);
+
